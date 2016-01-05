@@ -11,14 +11,25 @@ $(function() {
     	event.preventDefault();
     	var tag = $("#topic").val();
 
-    });
-    $.ajax({
-    	url: "https://favqs.com/api/",
-    	data: request,
-    	dataType: "jsonp",
-    	type: "GET",
-    })
-    var request = {
-    	filter: tag,
-    }
+    	// Get quote 1
+
+	    $.ajax({
+	    	url: "https://favqs.com/api/",
+	    	data: request,
+	    	dataType: "json",
+	    	type: "GET",
+	    });
+	    var request = {
+	    	filter: tag,
+	    }
+
+	    // Get rhymes
+
+	    .done(function(quoteList){
+	    	
+	    	quoteList.each()
+
+	    });
+	});
+
 });
