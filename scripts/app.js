@@ -1,35 +1,70 @@
 $(function() {
 
+	// Declare variables
+	var randomQuoteNo
+	var quote1
+	var author1
+
 	// Rotating background images
+
     var bgArray = ["bg1.jpg", "bg2.jpg", "bg3.jpg", "bg4.jpg", "bg5.jpg", "bg6.jpg", "bg8.jpg", "bg9.jpg", "bg10.jpg", "bg11.jpg", "bg12.jpg", "bg13.jpg"];
     var bg = bgArray[Math.floor(Math.random() * bgArray.length)];
     var path = 'images/';
     $("body").css("background-image","url('"+path+bg+"')");
 
     // Get input
+
     $("#getInput").submit(function(event) {
     	event.preventDefault();
     	var tag = $("#topic").val();
 
-    	// Get quote 1
+    	// Get random quote 1
 
 	    $.ajax({
-	    	url: "https://favqs.com/api/",
-	    	data: request,
+	    	url: "http://localhost/quotesAPI",
+	    	data: {"q" : tag},
 	    	dataType: "json",
 	    	type: "GET",
-	    });
-	    var request = {
-	    	filter: tag,
-	    }
-
-	    // Get rhymes
+	    })
 
 	    .done(function(quoteList){
-	    	
-	    	quoteList.each()
+			randomQuoteNo = Math.floor(Math.random() * quoteList.length);
+			quote1 = quoteList[randomQuoteNo].quote;
+			author1 = quoteList[randomQuoteNo].author;
+			$("#quote1").html(quote1+"<span> - "+author1+"</span>");
 
-	    });
+			// Get rhyme
+
+		    $.ajax({
+		    	url: "http://rhymebrain.com/talk",
+		    	data: {"function" : "getRhymes", "word" : tag, "score" : "300", "frequency" : 28, "maxResults" : 50 },
+		    	dataType: "json",
+		    	type: "GET",
+		    })
+
+		    .done(function(rhymeWordList) {
+
+				randomRhymeNo = Math.floor(Math.random() * rhymeWordList.length);
+				console.log(randomRhymeNo);
+				tag = rhymeWordList[randomRhymeNo].word;
+
+		    	// Get second quote based on rhyme
+
+			    $.ajax({
+			    url: "http://localhost/quotesAPI",
+			    data: {"q" : tag},
+			    dataType: "json",
+			    type: "GET",
+			    })
+
+		   		.done(function(quoteList) {
+					randomQuoteNo = Math.floor(Math.random() * quoteList.length);
+					quote2 = quoteList[randomQuoteNo].quote;
+					author2 = quoteList[randomQuoteNo].author;
+		   			$("#quote2").html(quote2+"<span> - "+author2+"</span>");
+
+		   		});
+		    });
+		});
 	});
-
 });
