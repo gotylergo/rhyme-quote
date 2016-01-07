@@ -4,6 +4,7 @@ $(function() {
 	var randomQuoteNo;
 	var quote1;
 	var author1;
+	var randomRhymeNo
 
 	// Rotating background images
 
@@ -11,8 +12,9 @@ $(function() {
     var bgArray = ["bg1.jpg", "bg2.jpg", "bg3.jpg", "bg4.jpg", "bg5.jpg", "bg6.jpg", "bg8.jpg", "bg9.jpg", "bg10.jpg", "bg11.jpg", "bg12.jpg", "bg13.jpg"];
     var bg = bgArray[Math.floor(Math.random() * bgArray.length)];
     var path = 'images/';
-    $("body").fadeTo('slow', 0.2, function() {
-    	$(this).css("background-image","url('"+path+bg+"')").fadeTo("slow", 1);
+    $(".content").stop().animate({backgroundColor:'rgba(0, 0, 0, 1)'}, 600 ,function(){
+    $("body").css("background-image","url('"+path+bg+"')");
+    $(".content").stop().animate({backgroundColor: 'rgba(0, 0, 0, 0.2)'}, 600);
 		});
 	};
 	changeBackground();
@@ -56,9 +58,12 @@ $(function() {
 
 			    .done(function(rhymeWordList) {
 
-					randomRhymeNo = Math.floor(Math.random() * rhymeWordList.length);
-					tag = rhymeWordList[randomRhymeNo].word;
-					console.log(tag);
+					var getRandomRhymeNo = function() {
+						var randomRhymeNo = Math.floor(Math.random() * rhymeWordList.length);
+						tag = rhymeWordList[randomRhymeNo].word;
+					};
+					getRandomRhymeNo();
+
 
 			    	// Get second quote based on rhyme
 

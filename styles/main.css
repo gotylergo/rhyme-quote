@@ -4,13 +4,15 @@ html {
 body {
 	margin: 0;
 	background-color: black;
+	background-repeat: no-repeat;
+	background-size: cover;
 	height: 100%;
 }
 .content {
 	min-height: 520px;
 	text-align: center;
 	height: 100%;
-	background-color: rgba(0,0,0,0.3);
+	background-color: rgba(0,0,0,1);
 }
 #getInput {
 }
