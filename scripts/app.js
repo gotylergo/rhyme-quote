@@ -1,9 +1,9 @@
 $(function() {
 
 	// Declare variables
-	var randomQuoteNo
-	var quote1
-	var author1
+	var randomQuoteNo;
+	var quote1;
+	var author1;
 
 	// Rotating background images
 
@@ -33,46 +33,51 @@ $(function() {
 	    })
 
 	    .done(function(quoteList){
-			randomQuoteNo = Math.floor(Math.random() * quoteList.length);
-			quote1 = quoteList[randomQuoteNo].quote;
-			author1 = quoteList[randomQuoteNo].author;
-			$("#quote1").html(quote1+"<span> - "+author1+"</span>");
+			// If no quote1 found, alert user to try again	    	
+	    	if (quoteList.length == 0) {
+	    		$("#quote1").html('No quotes found ending in "'+tag+'"');
+				$("#quote2").html("Please try again.");
+			    }
+	    	// If quote1 found
+			else {
+				randomQuoteNo = Math.floor(Math.random() * quoteList.length);
+				quote1 = quoteList[randomQuoteNo].quote;
+				author1 = quoteList[randomQuoteNo].author;
+				$("#quote1").html(quote1+"<span> - "+author1+"</span>");
 
-			// Get rhyme
-
-		    $.ajax({
-		    	url: "http://rhymebrain.com/talk",
-		    	data: {"function" : "getRhymes", "word" : tag, "score" : "300", "frequency" : 28, "maxResults" : 50 },
-		    	dataType: "json",
-		    	type: "GET",
-		    })
-
-		    .done(function(rhymeWordList) {
-
-				randomRhymeNo = Math.floor(Math.random() * rhymeWordList.length);
-				tag = rhymeWordList[randomRhymeNo].word;
-
-		    	// Get second quote based on rhyme
+				// Get rhyme
 
 			    $.ajax({
-			    url: "http://localhost/quotesAPI",
-			    data: {"q" : tag},
-			    dataType: "json",
-			    type: "GET",
+			    	url: "http://rhymebrain.com/talk",
+			    	data: {"function" : "getRhymes", "word" : tag, "score" : "300", "frequency" : 28, "maxResults" : 50 },
+			    	dataType: "json",
+			    	type: "GET",
 			    })
 
-		   		.done(function(quoteList) {
-					randomQuoteNo = Math.floor(Math.random() * quoteList.length);
-					if (quoteList[randomQuoteNo].quote) {
-					quote2 = quoteList[randomQuoteNo].quote;
-					author2 = quoteList[randomQuoteNo].author;
-		   			$("#quote2").html(quote2+"<span> - "+author2+"</span>")
-		   		} else {
-		   			alert("None!");
-		   		}
+			    .done(function(rhymeWordList) {
 
-		   		});
-		    });
+					randomRhymeNo = Math.floor(Math.random() * rhymeWordList.length);
+					tag = rhymeWordList[randomRhymeNo].word;
+					console.log(tag);
+
+			    	// Get second quote based on rhyme
+
+					    $.ajax({
+					    url: "http://localhost/quotesAPI",
+					    data: {"q" : tag},
+					    dataType: "json",
+					    type: "GET",
+					    })
+
+			   			.done(function(quoteList) {
+							randomQuoteNo = Math.floor(Math.random() * quoteList.length);
+							quote2 = quoteList[randomQuoteNo].quote;
+							author2 = quoteList[randomQuoteNo].author;
+				   			$("#quote2").html(quote2+"<span> - "+author2+"</span>")
+			   			});
+				   		
+				   	});
+				};
+			});
 		});
-	});
 });
