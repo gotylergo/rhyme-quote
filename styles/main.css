@@ -83,16 +83,17 @@ footer {
 .shadow {
 	box-shadow: 3px -5px 13px rgba(0,0,0,0.19), 2px -3px 7px rgba(0,0,0,0.23);
 }
-#preload-01 { background: url(images/bg1.jpg) no-repeat -9999px -9999px; }
-#preload-02 { background: url(images/bg2.jpg) no-repeat -9999px -9999px; }
-#preload-03 { background: url(images/bg3.jpg) no-repeat -9999px -9999px; }
-#preload-04 { background: url(images/bg4.jpg) no-repeat -9999px -9999px; }
-#preload-05 { background: url(images/bg5.jpg) no-repeat -9999px -9999px; }
-#preload-06 { background: url(images/bg6.jpg) no-repeat -9999px -9999px; }
-#preload-07 { background: url(images/bg7.jpg) no-repeat -9999px -9999px; }
-#preload-08 { background: url(images/bg8.jpg) no-repeat -9999px -9999px; }
-#preload-09 { background: url(images/bg9.jpg) no-repeat -9999px -9999px; }
-#preload-10 { background: url(images/bg10.jpg) no-repeat -9999px -9999px; }
-#preload-11 { background: url(images/bg11.jpg) no-repeat -9999px -9999px; }
-#preload-12 { background: url(images/bg12.jpg) no-repeat -9999px -9999px; }
-#preload-13 { background: url(images/bg13.jpg) no-repeat -9999px -9999px; }
+#preload-01 { background: url(../images/bg1.jpg) no-repeat -9999px -9999px; }
+#preload-02 { background: url(../images/bg2.jpg) no-repeat -9999px -9999px; }
+#preload-03 { background: url(../images/bg3.jpg) no-repeat -9999px -9999px; }
+#preload-04 { background: url(../images/bg4.jpg) no-repeat -9999px -9999px; }
+#preload-05 { background: url(../images/bg5.jpg) no-repeat -9999px -9999px; }
+#preload-06 { background: url(../images/bg6.jpg) no-repeat -9999px -9999px; }
+#preload-07 { background: url(../images/bg7.jpg) no-repeat -9999px -9999px; }
+#preload-08 { background: url(../images/bg8.jpg) no-repeat -9999px -9999px; }
+#preload-09 { background: url(../images/bg9.jpg) no-repeat -9999px -9999px; }
+#preload-10 { background: url(../images/bg10.jpg) no-repeat -9999px -9999px; }
+#preload-11 { background: url(../images/bg11.jpg) no-repeat -9999px -9999px; }
+#preload-12 { background: url(../images/bg12.jpg) no-repeat -9999px -9999px; }
+#preload-12 { background: url(../images/bg13.jpg) no-repeat -9999px -9999px; }
+#preload-12 { background: url(../images/bg14.jpg) no-repeat -9999px -9999px; }
