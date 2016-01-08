@@ -46,43 +46,50 @@ $(function() {
 				quote1 = quoteList[randomQuoteNo].quote;
 				author1 = quoteList[randomQuoteNo].author;
 				$("#quote1").html(quote1+"<span> - "+author1+"</span>");
+				$("#quote2").html("Loading....");
 
 				// Get rhyme
 
 			    $.ajax({
 			    	url: "http://rhymebrain.com/talk",
-			    	data: {"function" : "getRhymes", "word" : tag, "score" : "300", "frequency" : 28, "maxResults" : 50 },
+			    	data: {"function" : "getRhymes", "word" : tag, "score" : "300", "frequency" : 28, "maxResults" : 3 },
 			    	dataType: "json",
 			    	type: "GET",
 			    })
 
 			    .done(function(rhymeWordList) {
-
-					var getRandomRhymeNo = function() {
-						var randomRhymeNo = Math.floor(Math.random() * rhymeWordList.length);
-						tag = rhymeWordList[randomRhymeNo].word;
-					};
-					getRandomRhymeNo();
-
-
-			    	// Get second quote based on rhyme
-
-					    $.ajax({
+			    	var i = 0;
+			    	getRhymeWord(i, rhymeWordList);
+				});
+			}
+				function getRhymeWord(i, rhymeWordList){
+					if(i<rhymeWordList.length){
+						getSecondQuote(i,rhymeWordList);
+					} else {
+						$("#quote2").html("Cannot find a matching quote that rhymes");
+					}
+				}
+				function getSecondQuote(i, rhymeWordList){
+					randomNo = Math.floor(Math.random() * rhymeWordList.length);
+					tag = rhymeWordList[randomNo].word;
+					rhymeWordList.splice(randomNo,1);
+					$.ajax({
 					    url: "http://localhost/quotesAPI",
 					    data: {"q" : tag},
 					    dataType: "json",
 					    type: "GET",
-					    })
-
-			   			.done(function(quoteList) {
+				    })
+				    .done(function(quoteList) {
+		   				if(quoteList.length > 0){
 							randomQuoteNo = Math.floor(Math.random() * quoteList.length);
 							quote2 = quoteList[randomQuoteNo].quote;
 							author2 = quoteList[randomQuoteNo].author;
 				   			$("#quote2").html(quote2+"<span> - "+author2+"</span>")
-			   			});
-				   		
-				   	});
-				};
+				   		} else {
+				   			getRhymeWord(i,rhymeWordList);
+				   		}
+		   			});
+				}
 			});
 		});
 });
