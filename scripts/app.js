@@ -52,7 +52,7 @@ $(function() {
 
 			    $.ajax({
 			    	url: "http://rhymebrain.com/talk",
-			    	data: {"function" : "getRhymes", "word" : tag, "score" : "300", "frequency" : 28, "maxResults" : 3 },
+			    	data: {"function" : "getRhymes", "word" : tag, "score" : "300", "maxResults" : 5 },
 			    	dataType: "json",
 			    	type: "GET",
 			    })
@@ -66,7 +66,8 @@ $(function() {
 					if(i<rhymeWordList.length){
 						getSecondQuote(i,rhymeWordList);
 					} else {
-						$("#quote2").html("Cannot find a matching quote that rhymes");
+						$("#quote1").html("Cannot find a matching quote that rhymes.");
+						$("#quote2").html("Please try again.");
 					}
 				}
 				function getSecondQuote(i, rhymeWordList){
