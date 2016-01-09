@@ -28,69 +28,69 @@ $(function() {
     	// Get random quote 1
 
 	    $.ajax({
-	    	url: "http://localhost/quotesAPI",
+	    	url: "http://webdesign.tylerjustyn.com/quotesAPI",
 	    	data: {"q" : tag},
-	    	dataType: "json",
+	    	dataType: "jsonp",
+	    	crossDomain: true,
 	    	type: "GET",
-	    })
+	    	success: function(quoteList){
+				// If no quote1 found, alert user to try again	    	
+		    	if (quoteList.length == 0) {
+		    		$("#quote1").html('No quotes found ending in "'+tag+'"');
+					$("#quote2").html("Please try again.");
+				    }
+		    	// If quote1 found
+				else {
+					randomQuoteNo = Math.floor(Math.random() * quoteList.length);
+					quote1 = quoteList[randomQuoteNo].quote;
+					author1 = quoteList[randomQuoteNo].author;
+					$("#quote1").html(quote1+"<span> - "+author1+"</span>");
+					$("#quote2").html("Loading....");
 
-	    .done(function(quoteList){
-			// If no quote1 found, alert user to try again	    	
-	    	if (quoteList.length == 0) {
-	    		$("#quote1").html('No quotes found ending in "'+tag+'"');
-				$("#quote2").html("Please try again.");
-			    }
-	    	// If quote1 found
-			else {
-				randomQuoteNo = Math.floor(Math.random() * quoteList.length);
-				quote1 = quoteList[randomQuoteNo].quote;
-				author1 = quoteList[randomQuoteNo].author;
-				$("#quote1").html(quote1+"<span> - "+author1+"</span>");
-				$("#quote2").html("Loading....");
+					// Get rhyme
 
-				// Get rhyme
-
-			    $.ajax({
-			    	url: "http://rhymebrain.com/talk",
-			    	data: {"function" : "getRhymes", "word" : tag, "score" : "300", "maxResults" : 5 },
-			    	dataType: "json",
-			    	type: "GET",
-			    })
-
-			    .done(function(rhymeWordList) {
-			    	var i = 0;
-			    	getRhymeWord(i, rhymeWordList);
-				});
-			}
-				function getRhymeWord(i, rhymeWordList){
-					if(i<rhymeWordList.length){
-						getSecondQuote(i,rhymeWordList);
-					} else {
-						$("#quote1").html("Cannot find a matching quote that rhymes.");
-						$("#quote2").html("Please try again.");
-					}
-				}
-				function getSecondQuote(i, rhymeWordList){
-					randomNo = Math.floor(Math.random() * rhymeWordList.length);
-					tag = rhymeWordList[randomNo].word;
-					rhymeWordList.splice(randomNo,1);
-					$.ajax({
-					    url: "http://localhost/quotesAPI",
-					    data: {"q" : tag},
-					    dataType: "json",
-					    type: "GET",
+				    $.ajax({
+				    	url: "http://rhymebrain.com/talk",
+				    	data: {"function" : "getRhymes", "word" : tag, "score" : "300", "frequency" : 28, "maxResults" : 3 },
+				    	dataType: "json",
+				    	type: "GET",
 				    })
-				    .done(function(quoteList) {
-		   				if(quoteList.length > 0){
-							randomQuoteNo = Math.floor(Math.random() * quoteList.length);
-							quote2 = quoteList[randomQuoteNo].quote;
-							author2 = quoteList[randomQuoteNo].author;
-				   			$("#quote2").html(quote2+"<span> - "+author2+"</span>")
-				   		} else {
-				   			getRhymeWord(i,rhymeWordList);
-				   		}
-		   			});
+
+				    .done(function(rhymeWordList) {
+				    	var i = 0;
+				    	getRhymeWord(i, rhymeWordList);
+					});
 				}
-			});
-		});
+					function getRhymeWord(i, rhymeWordList){
+						if(i<rhymeWordList.length){
+							getSecondQuote(i,rhymeWordList);
+						} else {
+							$("#quote2").html("Cannot find a matching quote that rhymes");
+						}
+					}
+					function getSecondQuote(i, rhymeWordList){
+						randomNo = Math.floor(Math.random() * rhymeWordList.length);
+						tag = rhymeWordList[randomNo].word;
+						rhymeWordList.splice(randomNo,1);
+						$.ajax({
+						    url: "http://webdesign.tylerjustyn.com/quotesAPI",
+						    data: {"q" : tag},
+						    dataType: "jsonp",
+						    crossDomain: true,
+						    type: "GET",
+						    success: function(quoteList){
+		    	   				if(quoteList.length > 0){
+		    						randomQuoteNo = Math.floor(Math.random() * quoteList.length);
+		    						quote2 = quoteList[randomQuoteNo].quote;
+		    						author2 = quoteList[randomQuoteNo].author;
+		    			   			$("#quote2").html(quote2+"<span> - "+author2+"</span>")
+		    			   		} else {
+		    			   			getRhymeWord(i,rhymeWordList);
+		    			   		}
+						    }
+					    });
+					}
+	    	}
+	    });
+	});
 });
