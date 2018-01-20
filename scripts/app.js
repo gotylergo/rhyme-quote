@@ -28,7 +28,7 @@ $(function() {
     	// Get random quote 1
 
 	    $.ajax({
-	    	url: "http://webdesign.tylerjustyn.com/quotesAPI",
+	    	url: "http://webdesign.tylerjustyn.com/oldsite/quotesAPI",
 	    	data: {"q" : tag},
 	    	dataType: "jsonp",
 	    	crossDomain: true,
@@ -73,7 +73,7 @@ $(function() {
 						tag = rhymeWordList[randomNo].word;
 						rhymeWordList.splice(randomNo,1);
 						$.ajax({
-						    url: "http://webdesign.tylerjustyn.com/quotesAPI",
+						    url: "http://webdesign.tylerjustyn.com/oldsite/quotesAPI",
 						    data: {"q" : tag},
 						    dataType: "jsonp",
 						    crossDomain: true,
