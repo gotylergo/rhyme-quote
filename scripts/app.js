@@ -1,20 +1,20 @@
 $(function() {
 
 	// Declare variables
-	var randomQuoteNo;
-	var quote1;
-	var author1;
-	var randomRhymeNo
+	let randomQuoteNo;
+	let quote1;
+	let author1;
+	let randomRhymeNo;
 
 	// Rotating background images
 
-	var changeBackground = function() {
-    var bgArray = ["bg1.jpg", "bg2.jpg", "bg3.jpg", "bg4.jpg", "bg5.jpg", "bg6.jpg", "bg7.jpg","bg8.jpg", "bg9.jpg", "bg10.jpg", "bg11.jpg", "bg12.jpg", "bg13.jpg", "bg14.jpg"];
-    var bg = bgArray[Math.floor(Math.random() * bgArray.length)];
-    var path = 'images/';
-    $(".content").stop().animate({backgroundColor:'rgba(0, 0, 0, 1)'}, 600 ,function(){
-    $("body").css("background-image","url('"+path+bg+"')");
-    $(".content").stop().animate({backgroundColor: 'rgba(0, 0, 0, 0.2)'}, 600);
+	const changeBackground = function() {
+	    const bgArray = ["bg1.jpg", "bg2.jpg", "bg3.jpg", "bg4.jpg", "bg5.jpg", "bg6.jpg", "bg7.jpg", "bg8.jpg", "bg9.jpg", "bg10.jpg", "bg11.jpg", "bg12.jpg", "bg13.jpg", "bg14.jpg"];
+	    let bg = bgArray[Math.floor(Math.random() * bgArray.length)];
+	    const path = "images/";
+	    $(".content").stop().animate({backgroundColor: "rgba(0, 0, 0, 1)"}, 600 ,function() {
+		    $("body").css("background-image",`url('${path}${bg}')`);
+		    $(".content").stop().animate({backgroundColor: "rgba(0, 0, 0, 0.2)"}, 600);
 		});
 	};
 	changeBackground();
@@ -23,7 +23,7 @@ $(function() {
 
     $("#getInput").submit(function(event) {
     	event.preventDefault();
-    	var tag = $("#topic").val();
+    	let tag = $("#topic").val();
     	changeBackground();
     	// Get random quote 1
 
@@ -35,16 +35,16 @@ $(function() {
 	    	type: "GET",
 	    	success: function(quoteList){
 				// If no quote1 found, alert user to try again	    	
-		    	if (quoteList.length == 0) {
-		    		$("#quote1").html('No quotes found ending in "'+tag+'"');
+		    	if (quoteList.length === 0) {
+		    		$("#quote1").html(`No quotes found ending in "${tag}"`);
 					$("#quote2").html("Please try again.");
-				    }
+				}
 		    	// If quote1 found
 				else {
 					randomQuoteNo = Math.floor(Math.random() * quoteList.length);
 					quote1 = quoteList[randomQuoteNo].quote;
 					author1 = quoteList[randomQuoteNo].author;
-					$("#quote1").html(quote1+"<span> - "+author1+"</span>");
+					$("#quote1").html(`"${quote1}"<span> - ${author1}</span>`);
 					$("#quote2").html("Loading....");
 
 					// Get rhyme
@@ -57,7 +57,7 @@ $(function() {
 				    })
 
 				    .done(function(rhymeWordList) {
-				    	var i = 0;
+				    	let i = 0;
 				    	getRhymeWord(i, rhymeWordList);
 					});
 				}
@@ -79,11 +79,11 @@ $(function() {
 						    crossDomain: true,
 						    type: "GET",
 						    success: function(quoteList){
-		    	   				if(quoteList.length > 0){
+		    	   				if (quoteList.length > 0) {
 		    						randomQuoteNo = Math.floor(Math.random() * quoteList.length);
 		    						quote2 = quoteList[randomQuoteNo].quote;
 		    						author2 = quoteList[randomQuoteNo].author;
-		    			   			$("#quote2").html(quote2+"<span> - "+author2+"</span>")
+		    			   			$("#quote2").html(`"${quote2}"<span> - ${author2}</span>`);
 		    			   		} else {
 		    			   			getRhymeWord(i,rhymeWordList);
 		    			   		}
