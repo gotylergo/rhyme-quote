@@ -17,7 +17,7 @@ body {
 #getInput {
 }
 #getInput > input {
-	background-color: rgba(255,255,255,0.7);
+	background-color: rgba(255,255,255,0.8);
 	font-size: 1.25em;
 	text-align: center;
 	margin-right: 0.25em;
