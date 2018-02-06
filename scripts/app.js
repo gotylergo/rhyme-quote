@@ -4,7 +4,7 @@ $(function() {
 	let randomQuoteNo;
 	let quote1;
 	let author1;
-	let randomRhymeNo;
+	let randomRhymxeNo;
 
 	// Rotating background images
 
@@ -51,7 +51,7 @@ $(function() {
 
 				    $.ajax({
 				    	url: "http://rhymebrain.com/talk",
-				    	data: {"function" : "getRhymes", "word" : tag, "score" : "300", "frequency" : 28, "maxResults" : 3 },
+				    	data: {"function" : "getRhymes", "word" : tag, "score" : "300", "frequency" : 28, "maxResults" : 3},
 				    	dataType: "json",
 				    	type: "GET",
 				    })
