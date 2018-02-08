@@ -88,11 +88,13 @@ $(function() {
 		    			   		} else {
 		    			   			getRhymeWord(i,rhymeWordList);
 		    			   		}
+						    },
+						    complete: function() {
+						    	$('.load').hide();
 						    }
 					    });
 					
 					}
-				$('.load').hide();
 	    	}
 	    });
 	});
