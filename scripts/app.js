@@ -22,6 +22,7 @@ $(function() {
     // Get input
 
     $("#getInput").submit(function(event) {
+		$(".loader").show();
     	event.preventDefault();
     	let tag = $("#topic").val();
     	changeBackground();
@@ -89,7 +90,9 @@ $(function() {
 		    			   		}
 						    }
 					    });
+					
 					}
+				$('.loader').hide();
 	    	}
 	    });
 	});
