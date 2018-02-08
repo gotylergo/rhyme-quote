@@ -29,7 +29,7 @@ $(function() {
     	// Get random quote 1
 
 	    $.ajax({
-	    	url: "http://webdesign.tylerjustyn.com/oldsite/quotesAPI",
+	    	url: "//webdesign.tylerjustyn.com/oldsite/quotesAPI",
 	    	data: {"q" : tag},
 	    	dataType: "jsonp",
 	    	crossDomain: true,
@@ -51,7 +51,7 @@ $(function() {
 					// Get rhyme
 
 				    $.ajax({
-				    	url: "http://rhymebrain.com/talk",
+				    	url: "//rhymebrain.com/talk",
 				    	data: {"function" : "getRhymes", "word" : tag, "score" : "300", "frequency" : 28, "maxResults" : 3},
 				    	dataType: "json",
 				    	type: "GET",
@@ -74,7 +74,7 @@ $(function() {
 						tag = rhymeWordList[randomNo].word;
 						rhymeWordList.splice(randomNo,1);
 						$.ajax({
-						    url: "http://webdesign.tylerjustyn.com/oldsite/quotesAPI",
+						    url: "//webdesign.tylerjustyn.com/oldsite/quotesAPI",
 						    data: {"q" : tag},
 						    dataType: "jsonp",
 						    crossDomain: true,
