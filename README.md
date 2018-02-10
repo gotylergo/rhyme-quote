@@ -1,7 +1,7 @@
 # rhyme-quote
 Original project idea created using a database from The Web Miner turned into a simple PHP API, and the Rhymebrain.com API database, coded with jQuery and stylized with Materialize.
 
-![Screenshot](http://i63.tinypic.com/2s127fp.jpg)
+![Screenshot](http://i65.tinypic.com/303bblk.jpg)
 
 ## What's RhymeQuote?
 RhymeQuote is a web app designed to find and display two quotes that rhyme.
