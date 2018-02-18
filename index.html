@@ -3,17 +3,25 @@
 <head>
 	<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css">
 	<link href="//use.fontawesome.com/releases/v5.0.6/css/all.css" rel="stylesheet">
-	<link href="styles/main.css" rel="stylesheet" type="text/css">
 	<link href="styles/loader.css" rel="stylesheet" type="text/css">
-	<link href='//fonts.googleapis.com/css?family=Nunito:400,300' rel='stylesheet' type='text/css'>
-	<link href='//fonts.googleapis.com/css?family=Tangerine:400,700' rel='stylesheet' type='text/css'>
+	<link href='//fonts.googleapis.com/css?family=Tangerine:700' rel='stylesheet' type='text/css'>
 	<link href='//fonts.googleapis.com/css?family=Cutive+Mono' rel='stylesheet' type='text/css'>
+	<link href="styles/main.css" rel="stylesheet" type="text/css">
 	<meta charset="UTF-8">
-
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 	<title>RhymeQuote</title>
 </head>
 <body>
-	<section class="content valign-wrapper" role="main">
+	<main class="content valign-wrapper" role="main">
+		<div class="container">
+			<form action="#" id="getInput"><input type="text" id="topic" aria-label="Enter a word to search" class="valign shadow" autocomplete="off" placeholder="What word shall we try?" required autofocus> <button id="searchButton" class="valign shadow waves-effect waves-light btn black">RhymeQuote</button></form>
+			<div>
+				<h1 id="quote1">The secret of success is to be ready when your opportunity comes. <span>- Benjamin Disraeli</span></h1>
+				<h1 id="quote2">At the center of non-violence stands the principle of love. <span>- Martin Luther King, Jr.</span></h1>
+			</div>
+			<!-- Modal Trigger -->
+			<button data-target="modal1"  class="valign shadow waves-effect waves-light btn modal-trigger black">What's this?</button>
+		</div>
 		<!-- Modal Structure -->
 		<div id="modal1" class="modal">
 			<div class="modal-content">
@@ -22,7 +30,7 @@
 				<h4>How does it work?</h4>
 				<p>First we make an API call to a self hosted quote database from <a href="https://thewebminer.com/" target="_blank">The Web Miner</a> to find a quote that ends in the inputted word. Then, we call the <a href="http://rhymebrain.com/" target="_blank">Rhymebrain</a> API to find possible rhymes, and search the database for each until a rhyme is matched. We then use JQuery to manipulate the webpage and display the new found "RhymeQuote." RhymeQuote also implements the <a href="http://materializecss.com" target="_blank">Materialize</a> framework for styling and <a href="https://codepen.io/yusufbkr/pen/MazqVr" target="_blank">CSS animation</a>.</p>
 				<h4>Who are you?</h4>
-				<p>I'm Tyler! Find me on Github: <a href="https://github.com/gotylergo" target="_blank">https://github.com/gotylergo</a></p>
+				<p>I'm Tyler! Find me on Github: <a href="https://github.com/gotylergo" target="_blank">github.com/gotylergo</a></p>
 			</div>
 			<div class="modal-footer">
 				<a href="#!" class="modal-action modal-close waves-effect pink waves-pink btn-flat">Let's go!</a>
@@ -32,24 +40,6 @@
 		   <div class="dot"></div>
 		   <div class="outline"><span></span></div>
 		</div>
-		<div class="container">
-			<form action="#" id="getInput"><input type="text" id="topic" class="valign shadow" autocomplete="off" placeholder="What word shall we try?" required autofocus> <button id="searchButton" class="valign shadow waves-effect waves-light btn black">RhymeQuote</button></form>
-			<h1 id="quote1">The secret of success is to be ready when your opportunity comes. <span>- Benjamin Disraeli</span></h1>
-			<h1 id="quote2">At the center of non-violence stands the principle of love. <span>- Martin Luther King, Jr.</span></h1>
-			<!-- Modal Trigger -->
-			<button data-target="modal1"  class="valign shadow waves-effect waves-light btn modal-trigger black">What's this?</button>
-		</div>
-			</div>
-	</section>
-	<footer class="page-footer black" role="contentinfo">
-		<div class="footer-copyright">
-			<div class="container">
-				<div class="right">
-					<a href="http://github.com/gotylergo" target="_blank"><i class="fab fa-github"></i> Find me on GitHub</a>
-				</div>
-		</div>
-	</footer>
-
 		<div id="preload-01"></div>
 		<div id="preload-02"></div>
 		<div id="preload-03"></div>
@@ -63,6 +53,15 @@
 		<div id="preload-11"></div>
 		<div id="preload-12"></div>
 		<div id="preload-13"></div>
+	</main>
+	<footer class="page-footer black" role="contentinfo">
+		<div class="footer-copyright">
+			<div class="container">
+				<div class="right">
+					<a href="http://github.com/gotylergo" target="_blank"><i class="fab fa-github"></i> Find me on GitHub</a>
+				</div>
+		</div>
+	</footer>
 	<script src="//code.jquery.com/jquery-2.1.4.min.js" type="text/javascript"></script>
 	<script src="//code.jquery.com/ui/1.11.4/jquery-ui.min.js"></script>
 	<script src="//cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>

@@ -13,7 +13,7 @@ $(function() {
 	    let bg = bgArray[Math.floor(Math.random() * bgArray.length)];
 	    const path = "images/";
 	    $(".content").stop().animate({backgroundColor: "rgba(0, 0, 0, 1)"}, 600 ,function() {
-		    $("body").css("background-image",`url('${path}${bg}')`);
+		    $("main").css("background-image",`url('${path}${bg}')`);
 		    $(".content").stop().animate({backgroundColor: "rgba(0, 0, 0, 0.2)"}, 600);
 		});
 	};
