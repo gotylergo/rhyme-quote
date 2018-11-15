@@ -1,5 +1,5 @@
 <?php
-$con = mysql_connect('mysql.tylerjustyn.com','tjquotesdb','qtyco2846');
+$con = mysql_connect('mysql.tylerjustyn.com','tjquotesdb','CRv15k8DQjzy');
 mysql_select_db('tylerjustynquotes');
 
 $data = '{}'; // json string
@@ -21,7 +21,7 @@ if(isset($_REQUEST['q'])){
 if(array_key_exists('callback', $_GET)){
 
     header('Content-Type: text/javascript; charset=utf8');
-    header('Access-Control-Allow-Origin: http://www.example.com/');
+    header('Access-Control-Allow-Origin: http://www.tylerjustyn.com/');
     header('Access-Control-Max-Age: 3628800');
     header('Access-Control-Allow-Methods: GET, POST, PUT, DELETE');
 
