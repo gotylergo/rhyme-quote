@@ -9,7 +9,7 @@ $(function() {
 	// Rotating background images
 
 	const changeBackground = function() {
-	    const bgArray = ["bg1.jpg", "bg2.jpg", "bg3.jpg", "bg4.jpg", "bg5.jpg", "bg6.jpg", "bg7.jpg", "bg8.jpg", "bg9.jpg", "bg10.jpg", "bg11.jpg", "bg12.jpg", "bg13.jpg", "bg14.jpg"];
+	    const bgArray = ["bg1.jpg", "bg2.jpg", "bg3.jpg", "bg4.jpg", "bg5.jpg", "bg6.jpg", "bg7.jpg", "bg8.jpg", "bg9.jpg", "bg10.jpg", "bg11.jpg", "bg12.jpg", "bg13.jpg"];
 	    let bg = bgArray[Math.floor(Math.random() * bgArray.length)];
 	    const path = "images/";
 	    $(".content").stop().animate({backgroundColor: "rgba(0, 0, 0, 1)"}, 600 ,function() {
