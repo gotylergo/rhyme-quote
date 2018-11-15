@@ -1,7 +1,7 @@
 # rhyme-quote
 Original project idea created using a database from The Web Miner turned into a simple PHP API, and the Rhymebrain.com API database, coded with jQuery and stylized with Materialize.
 
-[Live Demo](http://gotylergo.github.io/rhyme-quote/)
+[Live Demo](http://gotylergo.github.io/rhymequote/)
 
 ![Screenshot](http://i65.tinypic.com/303bblk.jpg)
 
