@@ -25,7 +25,8 @@ main {
   width: 100%;
   background-color: rgba(255, 255, 255, 0.85);
   text-align: center;
-  height: 2em;
+	height: 3em;
+	line-height: 3em;
   font-size: .75em;
   min-width: 200px;
 }
@@ -35,9 +36,13 @@ main {
 }
 
 .btn {
-  height: 2em;
+	height: 2em;
   font-size: 1em;
   width: 100%;
+}
+
+.main-btn {
+	height: 2.25em;
 }
 
 a,
@@ -79,8 +84,6 @@ h4 {
 
 .modal {
   width: 90% ;
-  max-height: 80%;
-	font-size: .6em;
 }
 
 .modal-content>h4 {
@@ -117,8 +120,10 @@ h4 {
     width: auto !important;
   }
   .modal {
+		top: 5%;
 		max-width: 600px;
-		max-height: initial;
+		max-height: 85%;
+		font-size: .8em;
   }
 }
 
