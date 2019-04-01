@@ -1,14 +1,14 @@
 <?php
-$con = mysql_connect('mysql.tylerjustyn.com','tjquotesdb','CRv15k8DQjzy');
-mysql_select_db('tylerjustynquotes');
+$con = new mysqli('mysql.tylerjustyn.com','tjquotesdb','CRv15k8DQjzy');
+$con->select_db('tylerjustynquotes');
 
 $data = '{}'; // json string
 
 if(isset($_REQUEST['q'])){
 	$search = $_REQUEST['q'];
-	$q = mysql_query("select * from quotes where quote LIKE '% {$search}.'");
+	$q = $con->query("select * from quotes where quote LIKE '% {$search}.'");
 	$results = [];
-	while ($row = mysql_fetch_object($q)) {
+	while ($row = $q->fetch_object()) {
 		$result = [];
 		$result['quote'] = $row->quote;
 		$result['author'] = $row->author;
