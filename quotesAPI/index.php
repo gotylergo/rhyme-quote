@@ -17,7 +17,6 @@ if(isset($_REQUEST['q'])){
 	$data = json_encode($results);
 }
 
-
 if(array_key_exists('callback', $_GET)){
 
     header('Content-Type: text/javascript; charset=utf8');
@@ -34,9 +33,3 @@ if(array_key_exists('callback', $_GET)){
 
     echo $data;
 }
-
-	
-
-
-	// 
-	
