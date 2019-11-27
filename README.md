@@ -1,9 +1,9 @@
 # rhyme-quote
 Original project idea created using a database from The Web Miner turned into a simple PHP API, and the Rhymebrain.com API database, coded with jQuery and stylized with Materialize.
 
-[Live Demo](http://gotylergo.github.io/rhymequote/)
+[Live Demo](https://tylerjustyn.dev/app/rhymequote)
 
-![Screenshot](http://i65.tinypic.com/303bblk.jpg)
+![Screenshot](https://tylerjustyn.dev/img/rhymequote.jpg)
 
 ## What's RhymeQuote?
 RhymeQuote is a web app designed to find and display two quotes that rhyme.
@@ -20,7 +20,7 @@ First we make an API call to a self hosted quote database from The Web Miner to 
 - **CSS3**: Style sheet language used for describing the presentation of a document written in a markup language like HTML.
 
 ## Who are you?
-I'm Tyler! Find me on Github: https://github.com/gotylergo
+I'm Tyler! Checkout my portfolio: https://tylerjustyn.dev
 
 ## Credits
 - [The Web Miner](https://thewebminer.com/)
